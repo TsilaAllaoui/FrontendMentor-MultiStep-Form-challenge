@@ -1,0 +1,24 @@
+@font-face {
+  font-family: "Ubuntu Regular";
+  src: url(../fonts/Ubuntu-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Ubuntu Bold";
+  src: url(../fonts/Ubuntu-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Ubuntu Medium";
+  src: url(../fonts/Ubuntu-Medium.ttf);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  height: 100svh;
+  width: 100svw;
+  background-color: grey;
+}

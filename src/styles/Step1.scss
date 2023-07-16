@@ -1,0 +1,33 @@
+#step-1 {
+    display: flex;
+    width: 75svh;
+    height: 75svw;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px red;
+    background-color: grey;
+
+    #indicator {
+        height: 74%;
+        width: 35%;
+        border-radius: 1rem 0 0 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .step {
+            margin: 1rem 2rem;
+
+            &:first-child {
+                margin-top: 3rem;
+            }
+        }
+    }
+
+    #inputs {
+        background-color: green;
+        width: 65%;
+        height: 74%;
+        border-radius: 0 1rem 1rem 0;
+    }
+}
