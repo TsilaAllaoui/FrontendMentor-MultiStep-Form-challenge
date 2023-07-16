@@ -1,16 +1,14 @@
 #step-1 {
     display: flex;
-    width: 75svh;
-    height: 75svw;
+    width: 50svw;
+    height: 75svh;
     justify-content: center;
     align-items: center;
-    border: solid 1px red;
-    background-color: grey;
+    background-color: white;
 
     #indicator {
         height: 74%;
-        width: 35%;
-        border-radius: 1rem 0 0 1rem;
+        width: 10rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -24,10 +22,64 @@
         }
     }
 
+
     #inputs {
-        background-color: green;
+        background-color: white;
         width: 65%;
-        height: 74%;
+        height: 100%;
         border-radius: 0 1rem 1rem 0;
+        display: flex;
+        flex-direction: column;
+        padding-left: 8rem;
+        justify-content: space-between;
+
+        #inputs-container {
+            margin-top: 2rem;
+        }
+
+        #header {
+            font-family: "Ubuntu Bold";
+            font-size: 2rem;
+        }
+
+        #header-desc {
+            font-size: 1rem;
+            font-family: "Ubuntu Regular";
+            color: grey;
+            margin-top: 0.5rem;
+        }
+
+        .input {
+            margin: 3rem 0 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-family: "Ubuntu Medium";
+
+            input {
+                height: 2.5rem;
+                border-radius: 0.5rem;
+                border: solid 1px grey;
+                padding: 0 1rem;
+                font-family: "Ubuntu Medium";
+            }
+        }
+
+        #button-container {
+            display: flex;
+            justify-content: flex-end;
+
+            button {
+                background-color: rgb(1, 41, 92);
+                color: white;
+                justify-self: flex-end;
+                margin-top: 15rem;
+                height: 3rem;
+                width: 7rem;
+                border-radius: 0.5rem;
+                border: none;
+                font-family: "Ubuntu Bold";
+            }
+        }
     }
 }

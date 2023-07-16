@@ -13,25 +13,27 @@ const Step1 = () => {
     ];
 
     return <div id="step-1">
-        <div id="indicator">
-            <StepsIndicator steps={steps} bg={bg} />
-        </div>
+        <StepsIndicator steps={steps} bg={bg} />
         <div id="inputs">
-            <h1>Personal info</h1>
-            <h3>PLease provide your name, email, address, adn phone number.</h3>
-            <div className="input">
-                <label>Name</label>
-                <input type="text" placeholder="e.g.Stephen King" />
+            <div id="inputs-container">
+                <div>
+                    <div id="header">Personal info</div>
+                    <div id="header-desc">Please provide your name, email, address, adn phone number.</div>
+                </div>
+                <div className="input">
+                    <label>Name</label>
+                    <input type="text" placeholder="e.g.Stephen King" />
+                </div>
+                <div className="input">
+                    <label>Email Address</label>
+                    <input type="text" placeholder="e.g.stephenking@lorem.com" />
+                </div>
+                <div className="input">
+                    <label>Phone Number</label>
+                    <input type="text" placeholder="e.g.+1234567890" />
+                </div>
             </div>
-            <div className="input">
-                <label>Email Address</label>
-                <input type="text" placeholder="e.g.stephenking@lorean.com" />
-            </div>
-            <div className="input">
-                <label>Email Address</label>
-                <input type="text" placeholder="e.g.+1234567890" />
-            </div>
-            <button>Next Step</button>
+            <div id="button-container"><button>Next Step</button></div>
         </div>
     </div>
 }

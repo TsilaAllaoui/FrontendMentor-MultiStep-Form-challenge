@@ -1,15 +1,21 @@
 #steps-indicator {
-    width: 100%;
+    width: 35%;
     height: 100%;
     display: flex;
     flex-direction: column;
     color: white;
-    background-repeat: no-repeat;
     background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 1rem;
 
     .step {
         font-size: 1rem;
         display: flex;
+        margin: 2rem 3rem;
+
+        &:first-child {
+            margin-top: 3rem;
+        }
 
         #index {
             height: 2.5rem;
