@@ -17,6 +17,7 @@ const Plan = ({ plan, planType }: { plan: PlanModel; planType: string }) => {
         <p>
           ${planType == "mo" ? plan.monthlyPrice : plan.yearlyPrice}/{planType}
         </p>
+        <p>{planType == "year" ? "2 month free" : ""}</p>
       </div>
     </div>
   );

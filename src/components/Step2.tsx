@@ -8,9 +8,9 @@ import { useState } from "react";
 
 const Step2 = () => {
   const plans: PlanModel[] = [
-    { icon: arcade, name: "Arcade", monthlyPrice: 9, yearlyPrice: 7 },
-    { icon: advanced, name: "Advanced", monthlyPrice: 12, yearlyPrice: 10 },
-    { icon: pro, name: "Pro", monthlyPrice: 15, yearlyPrice: 13 },
+    { icon: arcade, name: "Arcade", monthlyPrice: 9, yearlyPrice: 90 },
+    { icon: advanced, name: "Advanced", monthlyPrice: 12, yearlyPrice: 120 },
+    { icon: pro, name: "Pro", monthlyPrice: 15, yearlyPrice: 150 },
   ];
 
   const [planType, setPlanType] = useState("mo");
