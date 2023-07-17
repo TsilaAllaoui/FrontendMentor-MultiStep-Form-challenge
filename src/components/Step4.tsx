@@ -27,6 +27,7 @@ const Step4 = ({
     navigate("/addons");
   };
 
+  const [total, setTotal] = useState(0);
   const [totalAddons, setTotalAddons] = useState(0);
   useEffect(() => {
     let t = 0;
@@ -35,9 +36,12 @@ const Step4 = ({
         t += addon.price;
       });
     setTotalAddons(t);
+    setTotal(userPlan.price + t);
   }, [userAddons]);
 
-  const [total, setTotal] = useState(userPlan.price + totalAddons);
+  useEffect(() => {
+    console.log("USERPLAN:" + userPlan.price);
+  }, []);
 
   return (
     <div id="step-4">
