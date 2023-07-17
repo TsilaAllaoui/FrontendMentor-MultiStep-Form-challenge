@@ -89,7 +89,7 @@ function App() {
                 setCurrentStep={setCurrentStep}
                 userInfos={userInfos}
                 userPlan={userPlan}
-                userAddon={userAddons}
+                userAddons={userAddons}
               />
             }
           />
