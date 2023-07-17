@@ -21,8 +21,8 @@ function App() {
     <div id="app">
       <StepsIndicator steps={steps} bg={bg} currentStep={currentStep} />
       {/* <Step1 /> */}
-      <Step2 />
-      {/* <Step3 /> */}
+      {/* <Step2 /> */}
+      <Step3 />
     </div>
   );
 }
