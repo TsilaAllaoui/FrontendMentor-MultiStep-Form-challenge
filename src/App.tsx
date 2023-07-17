@@ -5,6 +5,7 @@ import Step from "./models/Step";
 import Step1 from "./components/Step1";
 import { useState } from "react";
 import Step2 from "./components/Step2";
+import Step3 from "./components/Step3";
 
 function App() {
   const steps: Step[] = [
@@ -21,6 +22,7 @@ function App() {
       <StepsIndicator steps={steps} bg={bg} currentStep={currentStep} />
       {/* <Step1 /> */}
       <Step2 />
+      {/* <Step3 /> */}
     </div>
   );
 }

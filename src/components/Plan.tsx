@@ -1,16 +1,31 @@
 import PlanModel from "../models/PlanModel";
 import "../styles/Plan.scss";
 
-const Plan = ({ plan, planType }: { plan: PlanModel; planType: string }) => {
+const Plan = ({
+  plan,
+  planType,
+  index,
+  bgColor,
+  setCurrentPlan,
+}: {
+  plan: PlanModel;
+  planType: string;
+  index: number;
+  bgColor: string;
+  setCurrentPlan: (i: number) => void;
+}) => {
   const updatePlan = (e: React.MouseEvent<HTMLDivElement>) => {
-    const plans: NodeListOf<HTMLDivElement> =
-      document.querySelectorAll("#plan");
-    plans.forEach((plan) => (plan.style.backgroundColor = "white"));
-    e.currentTarget.style.backgroundColor = "rgba(128, 128, 128, 0.128)";
+    setCurrentPlan(index);
   };
 
   return (
-    <div id="plan" onClick={updatePlan}>
+    <div
+      id="plan"
+      onClick={updatePlan}
+      style={{
+        backgroundColor: bgColor,
+      }}
+    >
       <img src={plan.icon} alt={plan.icon} />
       <div id="info">
         <p>{plan.name}</p>

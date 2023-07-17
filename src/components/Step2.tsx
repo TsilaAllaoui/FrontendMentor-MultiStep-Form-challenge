@@ -4,7 +4,7 @@ import advanced from "../assets/images/icon-advanced.svg";
 import pro from "../assets/images/icon-pro.svg";
 import PlanModel from "../models/PlanModel";
 import Plan from "./Plan";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Step2 = () => {
   const plans: PlanModel[] = [
@@ -14,6 +14,7 @@ const Step2 = () => {
   ];
 
   const [planType, setPlanType] = useState("mo");
+  const [currentPlan, setCurrentPlan] = useState(0);
 
   const changePlanType = (e: React.MouseEvent<HTMLDivElement>) => {
     const circle = e.currentTarget.querySelector("#circle") as HTMLDivElement;
@@ -21,6 +22,10 @@ const Step2 = () => {
     circle.style.right = circle.style.right == "0px" ? "45%" : "0px";
     setPlanType((planType) => (planType == "mo" ? "year" : "mo"));
   };
+
+  useEffect(() => {
+    console.log(currentPlan);
+  }, [currentPlan]);
 
   return (
     <div id="step-2">
@@ -31,8 +36,17 @@ const Step2 = () => {
         </div>
       </div>
       <div id="plans">
-        {plans.map((plan) => (
-          <Plan plan={plan} planType={planType} key={plan.name} />
+        {plans.map((plan, index) => (
+          <Plan
+            plan={plan}
+            planType={planType}
+            index={index}
+            setCurrentPlan={setCurrentPlan}
+            bgColor={
+              index == currentPlan ? "rgba(128, 128, 128, 0.228)" : "white"
+            }
+            key={plan.name}
+          />
         ))}
       </div>
       <div id="plan-type">
