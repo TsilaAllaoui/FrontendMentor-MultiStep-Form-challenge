@@ -1,4 +1,4 @@
-import PlanModel from "../models/PlanModel";
+import { PlanModel } from "../models/PlanModel";
 import "../styles/Plan.scss";
 
 const Plan = ({
@@ -14,7 +14,7 @@ const Plan = ({
   bgColor: string;
   setCurrentPlan: (i: number) => void;
 }) => {
-  const updatePlan = (e: React.MouseEvent<HTMLDivElement>) => {
+  const updatePlan = (_e: React.MouseEvent<HTMLDivElement>) => {
     setCurrentPlan(index);
   };
 

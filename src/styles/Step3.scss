@@ -1,3 +1,13 @@
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 #step-3 {
   width: 57%;
   height: 100%;
@@ -6,9 +16,11 @@
   flex-direction: column;
   border-radius: 0.5rem;
   margin-left: 6rem;
+  animation: fade-in 1000ms ease-in-out forwards;
 
   #headers-container {
     margin: 2rem 0;
+
     #header {
       font-family: "Ubuntu Bold";
       font-size: 2rem;
@@ -52,6 +64,7 @@
         display: flex;
         flex-direction: column;
         gap: 0.2rem;
+
         p {
           margin: 0;
 
@@ -81,6 +94,7 @@
 
     .active {
       border: solid 2px rgb(72, 62, 255);
+
       img {
         background-color: rgb(72, 62, 255);
         border: solid 2px rgb(72, 62, 255);

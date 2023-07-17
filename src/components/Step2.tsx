@@ -4,7 +4,7 @@ import advanced from "../assets/images/icon-advanced.svg";
 import pro from "../assets/images/icon-pro.svg";
 import { PlanModel, UserPlan } from "../models/PlanModel";
 import Plan from "./Plan";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Step2 = ({
@@ -70,7 +70,7 @@ const Step2 = ({
             index={index}
             setCurrentPlan={setCurrentPlan}
             bgColor={
-              index == currentPlan ? "rgba(128, 128, 128, 0.228)" : "white"
+              index == currentPlan ? "rgba(128, 128, 128, 0.428)" : "white"
             }
             key={plan.name}
           />

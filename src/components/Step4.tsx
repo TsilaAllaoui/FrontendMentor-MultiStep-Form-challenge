@@ -1,18 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/Step4.scss";
-import UserInfos from "../models/UserInfos";
 import { UserPlan } from "../models/PlanModel";
 import { UserAddon } from "../models/AddonModel";
 import { useEffect, useState } from "react";
 
 const Step4 = ({
   setCurrentStep,
-  userInfos,
   userPlan,
   userAddons,
 }: {
   setCurrentStep: (index: number) => void;
-  userInfos: UserInfos;
   userPlan: UserPlan;
   userAddons: UserAddon[];
 }) => {
@@ -28,14 +25,12 @@ const Step4 = ({
   };
 
   const [total, setTotal] = useState(0);
-  const [totalAddons, setTotalAddons] = useState(0);
   useEffect(() => {
     let t = 0;
     if (userAddons)
       userAddons.forEach((addon) => {
         t += addon.price;
       });
-    setTotalAddons(t);
     setTotal(userPlan.price + t);
   }, [userAddons]);
 
@@ -58,7 +53,7 @@ const Step4 = ({
               {userPlan.name} ({userPlan.type == "mo" ? "Monthly" : "Yearly"})
             </p>
             <p>
-              <u>Change</u>
+              <u onClick={() => { setCurrentStep(1); navigate("/plans") }}>Change</u>
             </p>
           </div>
           <div id="plan-total">

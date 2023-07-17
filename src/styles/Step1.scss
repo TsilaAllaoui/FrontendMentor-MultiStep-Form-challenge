@@ -1,3 +1,13 @@
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 #step-1 {
   width: 57%;
   height: 100%;
@@ -6,9 +16,11 @@
   flex-direction: column;
   border-radius: 0.5rem;
   margin-left: 6rem;
+  animation: fade-in 1000ms ease-in-out forwards;
 
   #headers-container {
     margin: 2rem 0;
+
     #header {
       font-family: "Ubuntu Bold";
       font-size: 2rem;
@@ -36,6 +48,7 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
+
       div {
         color: rgb(212, 64, 80);
       }
@@ -50,6 +63,7 @@
       width: calc(100% - 1rem);
       padding-left: 1rem;
       color: rgb(1, 41, 92);
+
       &:focus-visible {
         outline: solid 1.5px rgb(1, 41, 92);
         font-family: "Ubuntu Bold";

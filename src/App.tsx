@@ -1,7 +1,7 @@
 import "./App.scss";
 import Step from "./models/Step";
 import Step1 from "./components/Step1";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Step2 from "./components/Step2";
 import Step3 from "./components/Step3";
 import Step4 from "./components/Step4";
@@ -33,18 +33,6 @@ function App() {
   });
   const [userAddons, setUserAddons] = useState<UserAddon[]>([]);
   const [planType, setPlanType] = useState("mo");
-
-  // useEffect(() => {
-  //   console.log(userInfos);
-  // }, [userInfos]);
-
-  // useEffect(() => {
-  //   console.log(userPlan);
-  // }, [userPlan]);
-
-  useEffect(() => {
-    console.log(userAddons);
-  }, [userAddons]);
 
   return (
     <div id="app">
@@ -87,7 +75,6 @@ function App() {
             element={
               <Step4
                 setCurrentStep={setCurrentStep}
-                userInfos={userInfos}
                 userPlan={userPlan}
                 userAddons={userAddons}
               />
