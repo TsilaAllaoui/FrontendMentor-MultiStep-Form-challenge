@@ -6,6 +6,7 @@ import Step1 from "./components/Step1";
 import { useState } from "react";
 import Step2 from "./components/Step2";
 import Step3 from "./components/Step3";
+import Step4 from "./components/Step4";
 
 function App() {
   const steps: Step[] = [
@@ -22,7 +23,8 @@ function App() {
       <StepsIndicator steps={steps} bg={bg} currentStep={currentStep} />
       {/* <Step1 /> */}
       {/* <Step2 /> */}
-      <Step3 />
+      {/* <Step3 /> */}
+      <Step4 />
     </div>
   );
 }
