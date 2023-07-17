@@ -26,6 +26,8 @@ function App() {
     email: "unknown",
     phone: "unknown",
   });
+  console.log(userInfos); // To prevent error for deployment
+  
   const [userPlan, setUserPlan] = useState<UserPlan>({
     name: "unknown",
     price: -1,
