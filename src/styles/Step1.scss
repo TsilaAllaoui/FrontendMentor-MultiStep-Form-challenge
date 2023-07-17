@@ -1,85 +1,83 @@
 #step-1 {
+  width: 57%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  margin-left: 6rem;
+
+  #headers-container {
+    margin: 2rem 0;
+    #header {
+      font-family: "Ubuntu Bold";
+      font-size: 2rem;
+      color: rgb(1, 41, 92);
+    }
+
+    #header-desc {
+      font-size: 1rem;
+      font-family: "Ubuntu Regular";
+      color: rgba(128, 128, 128, 0.628);
+      margin-top: 0.5rem;
+    }
+  }
+
+  .input {
     display: flex;
-    width: 50svw;
-    height: 75svh;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
+    flex-direction: column;
+    gap: 0.1rem;
+    font-family: "Ubuntu Medium";
+    width: 85%;
+    margin: 1rem 0;
+    color: rgb(1, 41, 92);
 
-    #indicator {
-        height: 74%;
-        width: 10rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .step {
-            margin: 1rem 2rem;
-
-            &:first-child {
-                margin-top: 3rem;
-            }
-        }
+    #label-line {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      div {
+        color: rgb(212, 64, 80);
+      }
     }
 
-
-    #inputs {
-        background-color: white;
-        width: 65%;
-        height: 100%;
-        border-radius: 0 1rem 1rem 0;
-        display: flex;
-        flex-direction: column;
-        padding-left: 8rem;
-        justify-content: space-between;
-
-        #inputs-container {
-            margin-top: 2rem;
-        }
-
-        #header {
-            font-family: "Ubuntu Bold";
-            font-size: 2rem;
-        }
-
-        #header-desc {
-            font-size: 1rem;
-            font-family: "Ubuntu Regular";
-            color: grey;
-            margin-top: 0.5rem;
-        }
-
-        .input {
-            margin: 3rem 0 0 0;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            font-family: "Ubuntu Medium";
-
-            input {
-                height: 2.5rem;
-                border-radius: 0.5rem;
-                border: solid 1px grey;
-                padding: 0 1rem;
-                font-family: "Ubuntu Medium";
-            }
-        }
-
-        #button-container {
-            display: flex;
-            justify-content: flex-end;
-
-            button {
-                background-color: rgb(1, 41, 92);
-                color: white;
-                justify-self: flex-end;
-                margin-top: 15rem;
-                height: 3rem;
-                width: 7rem;
-                border-radius: 0.5rem;
-                border: none;
-                font-family: "Ubuntu Bold";
-            }
-        }
+    input {
+      margin-top: 0.5rem;
+      height: 2.75rem;
+      border-radius: 0.5rem;
+      border: solid 1px rgba(128, 128, 128, 0.431);
+      font-family: "Ubuntu Medium";
+      width: calc(100% - 1rem);
+      padding-left: 1rem;
+      color: rgb(1, 41, 92);
+      &:focus-visible {
+        outline: solid 1.5px rgb(1, 41, 92);
+        font-family: "Ubuntu Bold";
+      }
     }
+  }
+
+  #button-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 85%;
+    flex: 1;
+    margin-bottom: 1rem;
+
+    button {
+      background-color: rgb(1, 41, 92);
+      color: white;
+      height: 3rem;
+      width: 7rem;
+      border-radius: 0.5rem;
+      border: none;
+      font-family: "Ubuntu Bold";
+      transition: all 500ms;
+
+      &:hover {
+        background-color: rgb(23, 74, 139);
+      }
+    }
+  }
 }

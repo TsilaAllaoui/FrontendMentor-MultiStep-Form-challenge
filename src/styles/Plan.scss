@@ -1,0 +1,39 @@
+#plan {
+  display: flex;
+  flex-direction: column;
+  border: solid 1px rgba(128, 128, 128, 0.628);
+  width: 33%;
+  height: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    border: solid 1.5px rgb(1, 41, 92);
+    box-shadow: inset 0 0 2px rgb(1, 41, 92);
+  }
+
+  img {
+    width: 2.5rem;
+    height: 2.5rem;
+    aspect-ratio: 1;
+  }
+
+  #info {
+    p {
+      margin: 0;
+    }
+
+    p:first-of-type {
+      color: rgb(1, 41, 92);
+      font-family: "Ubuntu Medium";
+    }
+
+    p:last-of-type {
+      color: rgba(128, 128, 128, 0.628);
+      font-size: 0.8rem;
+    }
+  }
+}

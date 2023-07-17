@@ -1,0 +1,105 @@
+#step-2 {
+  width: 57%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  margin-left: 6rem;
+
+  #headers-container {
+    margin: 2rem 0;
+    #header {
+      font-family: "Ubuntu Bold";
+      font-size: 2rem;
+      color: rgb(1, 41, 92);
+    }
+
+    #header-desc {
+      font-size: 1rem;
+      font-family: "Ubuntu Regular";
+      color: rgba(128, 128, 128, 0.628);
+      margin-top: 0.5rem;
+    }
+  }
+
+  #plans {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  #plan-type {
+    width: 100%;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(1, 40, 92, 0.053);
+    color: rgb(1, 41, 92);
+    font-family: "Ubuntu Medium";
+
+    p {
+      transition: color 750ms;
+    }
+
+    #switch {
+      width: 2.25rem;
+      height: 1.2rem;
+      border-radius: 1rem;
+      background-color: rgb(1, 41, 92);
+      margin: 0 1rem;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      position: relative;
+
+      #circle {
+        width: 0.75rem;
+        height: 0.75rem;
+        border-radius: 100%;
+        background-color: white;
+        margin: 0 0.25rem;
+        position: absolute;
+        transition: all 250ms ease-in-out;
+        position: absolute;
+      }
+    }
+  }
+
+  #actions {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+
+    #go-back {
+      border: none;
+      background-color: white;
+      color: rgb(1, 41, 92);
+      font-family: "Ubuntu Bold";
+      height: 3rem;
+      width: 7rem;
+      cursor: pointer;
+    }
+
+    #next-step {
+      background-color: rgb(1, 41, 92);
+      color: white;
+      font-family: "Ubuntu Bold";
+      height: 3rem;
+      width: 7rem;
+      border: none;
+      border-radius: 0.5rem;
+      transition: all 500ms;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgb(23, 74, 139);
+      }
+    }
+  }
+}
