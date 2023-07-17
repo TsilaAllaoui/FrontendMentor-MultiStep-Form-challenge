@@ -2,15 +2,19 @@ import "../styles/Step2.scss";
 import arcade from "../assets/images/icon-arcade.svg";
 import advanced from "../assets/images/icon-advanced.svg";
 import pro from "../assets/images/icon-pro.svg";
-import PlanModel from "../models/PlanModel";
+import { PlanModel, UserPlan } from "../models/PlanModel";
 import Plan from "./Plan";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Step2 = ({
   setCurrentStep,
+  setUserPlan,
+  setPlanType,
 }: {
   setCurrentStep: (index: number) => void;
+  setUserPlan: (index: UserPlan) => void;
+  setPlanType: (type: string) => void;
 }) => {
   const plans: PlanModel[] = [
     { icon: arcade, name: "Arcade", monthlyPrice: 9, yearlyPrice: 90 },
@@ -18,23 +22,29 @@ const Step2 = ({
     { icon: pro, name: "Pro", monthlyPrice: 15, yearlyPrice: 150 },
   ];
 
-  const [planType, setPlanType] = useState("mo");
+  const [_planType, _setPlanType] = useState("mo");
   const [currentPlan, setCurrentPlan] = useState(0);
 
   const changePlanType = (e: React.MouseEvent<HTMLDivElement>) => {
     const circle = e.currentTarget.querySelector("#circle") as HTMLDivElement;
     circle.style.left = circle.style.left == "0px" ? "45%" : "0px";
     circle.style.right = circle.style.right == "0px" ? "45%" : "0px";
-    setPlanType((planType) => (planType == "mo" ? "year" : "mo"));
+    _setPlanType(circle.style.left == "45%" ? "year" : "mo");
+    setPlanType(circle.style.left == "45%" ? "year" : "mo");
   };
-
-  useEffect(() => {
-    console.log(currentPlan);
-  }, [currentPlan]);
 
   const navigate = useNavigate();
 
   const next = () => {
+    const plan = plans[currentPlan];
+    const userPlan: UserPlan = {
+      name: plan.name,
+      price: _planType == "mo" ? plan.monthlyPrice : plan.yearlyPrice,
+      type: _planType,
+    };
+
+    setUserPlan(userPlan);
+
     setCurrentStep(2);
     navigate("/addons");
   };
@@ -56,7 +66,7 @@ const Step2 = ({
         {plans.map((plan, index) => (
           <Plan
             plan={plan}
-            planType={planType}
+            planType={_planType}
             index={index}
             setCurrentPlan={setCurrentPlan}
             bgColor={
@@ -70,7 +80,7 @@ const Step2 = ({
         <p
           style={{
             color:
-              planType == "mo"
+              _planType == "mo"
                 ? "rgb(1, 41, 92)"
                 : "rgba(128, 128, 128, 0.628)",
           }}
@@ -83,7 +93,7 @@ const Step2 = ({
         <p
           style={{
             color:
-              planType == "year"
+              _planType == "year"
                 ? "rgb(1, 41, 92)"
                 : "rgba(128, 128, 128, 0.628)",
           }}

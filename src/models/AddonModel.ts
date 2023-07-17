@@ -5,4 +5,11 @@ interface AddonModel {
   yearlyPrice: number;
 }
 
-export default AddonModel;
+interface UserAddon {
+  name: string;
+  desc: string;
+  price: number;
+  type: string;
+}
+
+export type { AddonModel, UserAddon };

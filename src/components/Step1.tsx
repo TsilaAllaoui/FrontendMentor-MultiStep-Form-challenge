@@ -1,11 +1,14 @@
 import { useRef } from "react";
 import "../styles/Step1.scss";
 import { useNavigate } from "react-router-dom";
+import UserInfos from "../models/UserInfos";
 
 const Step1 = ({
   setCurrentStep,
+  setUserInfos,
 }: {
   setCurrentStep: (index: number) => void;
+  setUserInfos: (infos: UserInfos) => void;
 }) => {
   const nameRef = useRef<HTMLInputElement | null>(null);
   const emailRef = useRef<HTMLInputElement | null>(null);
@@ -21,12 +24,53 @@ const Step1 = ({
       const divErrorElement = e.currentTarget.previousSibling as HTMLDivElement;
       const errorElement = divErrorElement.lastElementChild as HTMLDivElement;
       errorElement.textContent = "This field is required";
+      return true;
     }
+    return false;
+  };
+
+  const verifyInputs = () => {
+    let errorFound = false;
+    if (nameRef.current!.value == "") {
+      nameRef.current!.style.outline = "solid 1.5px rgb(212, 64, 80)";
+      const divErrorElement = nameRef.current!
+        .previousSibling as HTMLDivElement;
+      const errorElement = divErrorElement.lastElementChild as HTMLDivElement;
+      errorElement.textContent = "This field is required";
+      errorFound = true;
+    }
+    if (emailRef.current!.value == "") {
+      emailRef.current!.style.outline = "solid 1.5px rgb(212, 64, 80)";
+      const divErrorElement = emailRef.current!
+        .previousSibling as HTMLDivElement;
+      const errorElement = divErrorElement.lastElementChild as HTMLDivElement;
+      errorElement.textContent = "This field is required";
+      errorFound = true;
+    }
+    if (phoneRef.current!.value == "") {
+      phoneRef.current!.style.outline = "solid 1.5px rgb(212, 64, 80)";
+      const divErrorElement = phoneRef.current!
+        .previousSibling as HTMLDivElement;
+      const errorElement = divErrorElement.lastElementChild as HTMLDivElement;
+      errorElement.textContent = "This field is required";
+      errorFound = true;
+    }
+    return errorFound;
   };
 
   const navigate = useNavigate();
 
   const next = () => {
+    if (verifyInputs()) {
+      return;
+    }
+
+    setUserInfos({
+      name: nameRef.current!.value,
+      email: emailRef.current!.value,
+      phone: phoneRef.current!.value,
+    });
+
     setCurrentStep(1);
     navigate("/plans");
   };

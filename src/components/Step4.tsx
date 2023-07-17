@@ -1,6 +1,44 @@
+import { useNavigate } from "react-router-dom";
 import "../styles/Step4.scss";
+import UserInfos from "../models/UserInfos";
+import { UserPlan } from "../models/PlanModel";
+import { UserAddon } from "../models/AddonModel";
+import { useEffect, useState } from "react";
 
-const Step4 = () => {
+const Step4 = ({
+  setCurrentStep,
+  userInfos,
+  userPlan,
+  userAddons,
+}: {
+  setCurrentStep: (index: number) => void;
+  userInfos: UserInfos;
+  userPlan: UserPlan;
+  userAddons: UserAddon[];
+}) => {
+  const navigate = useNavigate();
+
+  const next = () => {
+    navigate("/validation");
+  };
+
+  const previous = () => {
+    setCurrentStep(2);
+    navigate("/addons");
+  };
+
+  const [totalAddons, setTotalAddons] = useState(0);
+  useEffect(() => {
+    let t = 0;
+    if (userAddons)
+      userAddons.forEach((addon) => {
+        t += addon.price;
+      });
+    setTotalAddons(t);
+  }, [userAddons]);
+
+  const [total, setTotal] = useState(userPlan.price + totalAddons);
+
   return (
     <div id="step-4">
       <div id="headers-container">
@@ -12,32 +50,43 @@ const Step4 = () => {
       <div id="summary">
         <div id="plan-summary">
           <div>
-            <p>Arcade (Monthly)</p>
+            <p>
+              {userPlan.name} ({userPlan.type == "mo" ? "Monthly" : "Yearly"})
+            </p>
             <p>
               <u>Change</u>
             </p>
           </div>
-          <div id="plan-total">$9/mo</div>
+          <div id="plan-total">
+            ${userPlan.price}/{userPlan.type}
+          </div>
         </div>
         <div id="separator"></div>
         <div id="addon-summary">
-          <div className="addon">
-            <p>Online service</p>
-            <p>+$1/mo</p>
-          </div>
-          <div className="addon">
-            <p>Large storage</p>
-            <p>+$2/mo</p>
-          </div>
+          {userAddons &&
+            userAddons.map((addon) => (
+              <div className="addon">
+                <p>{addon.name}</p>
+                <p>
+                  +${addon.price}/{addon.type}
+                </p>
+              </div>
+            ))}
         </div>
       </div>
       <div id="total">
-        <p>Total (per month)</p>
-        <p>+$12/mo</p>
+        <p>Total (per {userPlan.type == "mo" ? "month" : "year"})</p>
+        <p>
+          +${total}/{userPlan.type}
+        </p>
       </div>
       <div id="actions">
-        <button id="go-back">Go Back</button>
-        <button id="next-step">Confirm</button>
+        <button id="go-back" onClick={previous}>
+          Go Back
+        </button>
+        <button id="next-step" onClick={next}>
+          Confirm
+        </button>
       </div>
     </div>
   );

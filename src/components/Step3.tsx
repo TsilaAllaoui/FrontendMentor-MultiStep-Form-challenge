@@ -1,13 +1,17 @@
 import "../styles/Step3.scss";
 import check from "../assets/images/icon-checkmark.svg";
-import AddonModel from "../models/AddonModel";
-import { useEffect, useState } from "react";
+import { AddonModel, UserAddon } from "../models/AddonModel";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Step3 = ({
   setCurrentStep,
+  setUserAddons,
+  planType,
 }: {
   setCurrentStep: (index: number) => void;
+  setUserAddons: (userAddons: UserAddon[]) => void;
+  planType: string;
 }) => {
   const addons: AddonModel[] = [
     {
@@ -30,7 +34,8 @@ const Step3 = ({
     },
   ];
 
-  const [currentPlanType, setCurrentPlanType] = useState("mo");
+  console.log("PLAN TYPE: " + planType);
+
   const [activeAddons, setActiveAddons] = useState<number[]>([]);
 
   const toggleAddon = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
@@ -49,6 +54,20 @@ const Step3 = ({
   const navigate = useNavigate();
 
   const next = () => {
+    let userAddons: UserAddon[] = [];
+    activeAddons.forEach((i) => {
+      const addon = addons[i];
+      const userAddon: UserAddon = {
+        name: addon.name,
+        desc: addon.desc,
+        price: planType == "mo" ? addon.monthlyPrice : addon.yearlyPrice,
+        type: planType,
+      };
+      userAddons.push(userAddon);
+    });
+
+    setUserAddons(userAddons);
+
     setCurrentStep(3);
     navigate("/finish");
   };
@@ -78,8 +97,8 @@ const Step3 = ({
             </div>
             <p id="price">
               +$
-              {currentPlanType == "mo" ? addon.monthlyPrice : addon.yearlyPrice}
-              /{currentPlanType}
+              {planType == "mo" ? addon.monthlyPrice : addon.yearlyPrice}/
+              {planType}
             </p>
           </div>
         ))}

@@ -5,4 +5,10 @@ interface PlanModel {
   yearlyPrice: number;
 }
 
-export default PlanModel;
+interface UserPlan {
+  name: string;
+  price: number;
+  type: string;
+}
+
+export type { PlanModel, UserPlan };
