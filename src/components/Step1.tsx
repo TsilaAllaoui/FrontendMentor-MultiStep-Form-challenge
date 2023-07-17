@@ -1,7 +1,12 @@
 import { useRef } from "react";
 import "../styles/Step1.scss";
+import { useNavigate } from "react-router-dom";
 
-const Step1 = () => {
+const Step1 = ({
+  setCurrentStep,
+}: {
+  setCurrentStep: (index: number) => void;
+}) => {
   const nameRef = useRef<HTMLInputElement | null>(null);
   const emailRef = useRef<HTMLInputElement | null>(null);
   const phoneRef = useRef<HTMLInputElement | null>(null);
@@ -18,6 +23,14 @@ const Step1 = () => {
       errorElement.textContent = "This field is required";
     }
   };
+
+  const navigate = useNavigate();
+
+  const next = () => {
+    setCurrentStep(1);
+    navigate("/plans");
+  };
+
   return (
     <div id="step-1">
       <div id="headers-container">
@@ -63,7 +76,7 @@ const Step1 = () => {
         />
       </div>
       <div id="button-container">
-        <button>Next Step</button>
+        <button onClick={next}>Next Step</button>
       </div>
     </div>
   );

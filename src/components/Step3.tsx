@@ -2,8 +2,13 @@ import "../styles/Step3.scss";
 import check from "../assets/images/icon-checkmark.svg";
 import AddonModel from "../models/AddonModel";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Step3 = () => {
+const Step3 = ({
+  setCurrentStep,
+}: {
+  setCurrentStep: (index: number) => void;
+}) => {
   const addons: AddonModel[] = [
     {
       name: "Online service",
@@ -41,9 +46,17 @@ const Step3 = () => {
     }
   };
 
-  useEffect(() => {
-    console.log(activeAddons);
-  }, [activeAddons]);
+  const navigate = useNavigate();
+
+  const next = () => {
+    setCurrentStep(3);
+    navigate("/finish");
+  };
+
+  const previous = () => {
+    setCurrentStep(1);
+    navigate("/plans");
+  };
 
   return (
     <div id="step-3">
@@ -72,8 +85,12 @@ const Step3 = () => {
         ))}
       </div>
       <div id="actions">
-        <button id="go-back">Go Back</button>
-        <button id="next-step">Next Step</button>
+        <button id="go-back" onClick={previous}>
+          Go Back
+        </button>
+        <button id="next-step" onClick={next}>
+          Next Step
+        </button>
       </div>
     </div>
   );

@@ -5,8 +5,13 @@ import pro from "../assets/images/icon-pro.svg";
 import PlanModel from "../models/PlanModel";
 import Plan from "./Plan";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Step2 = () => {
+const Step2 = ({
+  setCurrentStep,
+}: {
+  setCurrentStep: (index: number) => void;
+}) => {
   const plans: PlanModel[] = [
     { icon: arcade, name: "Arcade", monthlyPrice: 9, yearlyPrice: 90 },
     { icon: advanced, name: "Advanced", monthlyPrice: 12, yearlyPrice: 120 },
@@ -26,6 +31,18 @@ const Step2 = () => {
   useEffect(() => {
     console.log(currentPlan);
   }, [currentPlan]);
+
+  const navigate = useNavigate();
+
+  const next = () => {
+    setCurrentStep(2);
+    navigate("/addons");
+  };
+
+  const previous = () => {
+    setCurrentStep(0);
+    navigate("/");
+  };
 
   return (
     <div id="step-2">
@@ -75,8 +92,12 @@ const Step2 = () => {
         </p>
       </div>
       <div id="actions">
-        <button id="go-back">Go Back</button>
-        <button id="next-step">Next Step</button>
+        <button id="go-back" onClick={previous}>
+          Go Back
+        </button>
+        <button id="next-step" onClick={next}>
+          Next Step
+        </button>
       </div>
     </div>
   );
