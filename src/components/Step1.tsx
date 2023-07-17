@@ -20,7 +20,7 @@ const Step1 = ({
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.currentTarget.value == "") {
-            e.currentTarget.style.outline = "solid 1.5px rgb(212, 64, 80)";
+            e.currentTarget.style.border = "solid 1.5px rgb(212, 64, 80)";
             const divErrorElement = e.currentTarget.previousSibling as HTMLDivElement;
             const errorElement = divErrorElement.lastElementChild as HTMLDivElement;
             errorElement.textContent = "This field is required";
@@ -30,7 +30,7 @@ const Step1 = ({
     };
 
     const VerifyInput = (input: HTMLInputElement) => {
-        input.style.outline = "solid 1.5px rgb(212, 64, 80)";
+        input.style.border = "solid 1.5px rgb(212, 64, 80)";
         const divErrorElement = input
             .previousSibling as HTMLDivElement;
         const errorElement = divErrorElement.lastElementChild as HTMLDivElement;
@@ -51,6 +51,27 @@ const Step1 = ({
                 errorElement.textContent = "Must be a valid email";
                 return true;
             } else {
+                emailRef.current!.style.border = "solid 1.5px rgb(1, 41, 92)";
+                errorElement.textContent = "";
+            }
+        }
+        return false;
+    };
+
+    const verifyPhoneNumber = () => {
+        const value = phoneRef.current!.value;
+        const divErrorElement = phoneRef.current!.previousSibling as HTMLDivElement;
+        const errorElement = divErrorElement.lastElementChild as HTMLDivElement;
+        if (value != "") {
+            if (
+                (value[0] != "+" && isNaN(Number(value.slice(1)))) || (value[0] == "+" && isNaN(Number(value.slice(1))))
+            ) {
+                phoneRef.current!.style.border = "solid 1.5px rgb(212, 64, 80)";
+                errorElement.textContent = "Must be a valid phone number";
+                return true;
+            }
+            else {
+                phoneRef.current!.style.border = "solid 1.5px rgba(128, 128, 128, 0.628)";
                 errorElement.textContent = "";
             }
         }
@@ -59,9 +80,15 @@ const Step1 = ({
 
     const verifyInputs = () => {
         let errorFound = false;
+        let phoneError = false;
         if (nameRef.current!.value == "") {
             VerifyInput(nameRef.current!);
             errorFound = true;
+        } else {
+            nameRef.current!.style.border = "solid 1.5px rgba(128, 128, 128, 0.628)";
+            const divErrorElement = nameRef.current!.previousSibling as HTMLDivElement;
+            const errorElement = divErrorElement.lastElementChild as HTMLDivElement;
+            errorElement.textContent = "";
         }
         if (emailRef.current!.value == "") {
             VerifyInput(emailRef.current!);
@@ -72,8 +99,10 @@ const Step1 = ({
         if (phoneRef.current!.value == "") {
             VerifyInput(phoneRef.current!);
             errorFound = true;
+        } else {
+            phoneError = verifyPhoneNumber();
         }
-        return errorFound;
+        return errorFound || phoneError;
     };
 
     const navigate = useNavigate();
@@ -110,6 +139,7 @@ const Step1 = ({
                     placeholder="e.g.Stephen King"
                     ref={nameRef}
                     onChange={handleChange}
+                    onFocus={(e) => { e.currentTarget.style.border = "solid 1.5px rgb(1, 41, 92)" }}
                 />
             </div>
             <div className="input">
@@ -122,6 +152,7 @@ const Step1 = ({
                     placeholder="e.g.stephenking@lorem.com"
                     ref={emailRef}
                     onChange={handleChange}
+                    onFocus={(e) => { e.currentTarget.style.border = "solid 1.5px rgb(1, 41, 92)" }}
                 />
             </div>
             <div className="input">
@@ -134,6 +165,7 @@ const Step1 = ({
                     placeholder="e.g.+1234567890"
                     ref={phoneRef}
                     onChange={handleChange}
+                    onFocus={(e) => { e.currentTarget.style.border = "solid 1.5px rgb(1, 41, 92)" }}
                 />
             </div>
             <div id="button-container">

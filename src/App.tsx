@@ -10,6 +10,7 @@ import Layout from "./components/Layout";
 import UserInfos from "./models/UserInfos";
 import { UserPlan } from "./models/PlanModel";
 import { UserAddon } from "./models/AddonModel";
+import End from "./components/End";
 
 function App() {
   const steps: Step[] = [
@@ -26,6 +27,8 @@ function App() {
     email: "unknown",
     phone: "unknown",
   });
+  console.log(userInfos); // To prevent error for deployment
+
   const [userPlan, setUserPlan] = useState<UserPlan>({
     name: "unknown",
     price: -1,
@@ -78,6 +81,12 @@ function App() {
                 userPlan={userPlan}
                 userAddons={userAddons}
               />
+            }
+          />
+          <Route
+            path="end"
+            element={
+              <End />
             }
           />
         </Route>

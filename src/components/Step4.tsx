@@ -16,7 +16,7 @@ const Step4 = ({
   const navigate = useNavigate();
 
   const next = () => {
-    navigate("/validation");
+    navigate("/end");
   };
 
   const previous = () => {
