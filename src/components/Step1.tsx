@@ -135,7 +135,7 @@ const Step1 = ({
           </div>
         </div>
         <div className="input">
-          <div id="label-line">
+          <div className="label-line">
             <label>Name</label>
             <div className="error">{nameError}</div>
           </div>
@@ -150,7 +150,7 @@ const Step1 = ({
           />
         </div>
         <div className="input">
-          <div id="label-line">
+          <div className="label-line">
             <label>Email Address</label>
             <div className="error">{emailError}</div>
           </div>
@@ -165,7 +165,7 @@ const Step1 = ({
           />
         </div>
         <div className="input">
-          <div id="label-line">
+          <div className="label-line">
             <label>Phone Number</label>
             <div className="error">{phoneError}</div>
           </div>
