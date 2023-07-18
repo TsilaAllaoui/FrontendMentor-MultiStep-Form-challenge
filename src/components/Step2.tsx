@@ -55,53 +55,63 @@ const Step2 = ({
   };
 
   return (
-    <div id="step-2">
-      <div id="headers-container">
-        <div id="header">Select your plan</div>
-        <div id="header-desc">
-          You have the option of monthlyor yearly billing.
+    <>
+      <div id="step-2">
+        <div id="headers-container">
+          <div id="header">Select your plan</div>
+          <div id="header-desc">
+            You have the option of monthlyor yearly billing.
+          </div>
+        </div>
+        <div id="plans">
+          {plans.map((plan, index) => (
+            <Plan
+              plan={plan}
+              planType={_planType}
+              index={index}
+              setCurrentPlan={setCurrentPlan}
+              bgColor={
+                index == currentPlan ? "rgba(128, 128, 128, 0.428)" : "white"
+              }
+              key={plan.name}
+            />
+          ))}
+        </div>
+        <div id="plan-type">
+          <p
+            style={{
+              color:
+                _planType == "mo"
+                  ? "rgb(1, 41, 92)"
+                  : "rgba(128, 128, 128, 0.628)",
+            }}
+          >
+            Monthly
+          </p>
+          <div id="switch" onClick={changePlanType}>
+            <div id="circle" style={{ left: "0px", right: "50%" }}></div>
+          </div>
+          <p
+            style={{
+              color:
+                _planType == "year"
+                  ? "rgb(1, 41, 92)"
+                  : "rgba(128, 128, 128, 0.628)",
+            }}
+          >
+            Yearly
+          </p>
+        </div>
+        <div id="actions">
+          <button id="go-back" onClick={previous}>
+            Go Back
+          </button>
+          <button id="next-step" onClick={next}>
+            Next Step
+          </button>
         </div>
       </div>
-      <div id="plans">
-        {plans.map((plan, index) => (
-          <Plan
-            plan={plan}
-            planType={_planType}
-            index={index}
-            setCurrentPlan={setCurrentPlan}
-            bgColor={
-              index == currentPlan ? "rgba(128, 128, 128, 0.428)" : "white"
-            }
-            key={plan.name}
-          />
-        ))}
-      </div>
-      <div id="plan-type">
-        <p
-          style={{
-            color:
-              _planType == "mo"
-                ? "rgb(1, 41, 92)"
-                : "rgba(128, 128, 128, 0.628)",
-          }}
-        >
-          Monthly
-        </p>
-        <div id="switch" onClick={changePlanType}>
-          <div id="circle" style={{ left: "0px", right: "50%" }}></div>
-        </div>
-        <p
-          style={{
-            color:
-              _planType == "year"
-                ? "rgb(1, 41, 92)"
-                : "rgba(128, 128, 128, 0.628)",
-          }}
-        >
-          Yearly
-        </p>
-      </div>
-      <div id="actions">
+      <div id="actions-mobile">
         <button id="go-back" onClick={previous}>
           Go Back
         </button>
@@ -109,7 +119,7 @@ const Step2 = ({
           Next Step
         </button>
       </div>
-    </div>
+    </>
   );
 };
 

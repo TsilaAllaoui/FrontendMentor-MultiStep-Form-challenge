@@ -1,0 +1,20 @@
+#layout {
+  font-family: "Ubuntu Regular";
+  background-color: white;
+  height: 75%;
+  width: 60%;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px 2px grey;
+  padding: 0.5rem;
+  display: flex;
+}
+
+@media (max-width: 416px) {
+  #layout {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background-color: rgba(98, 94, 94, 0.131);
+  }
+}

@@ -20,6 +20,7 @@
 
   #headers-container {
     margin: 2rem 0;
+    height: 25%;
 
     #header {
       font-family: "Ubuntu Bold";
@@ -71,27 +72,101 @@
     }
   }
 
-  #button-container {
+  #actions {
+    width: 86%;
+    height: 25%;
+    flex: 1;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    width: 85%;
-    flex: 1;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 
-    button {
+    #next-step {
       background-color: rgb(1, 41, 92);
       color: white;
+      font-family: "Ubuntu Bold";
       height: 3rem;
       width: 7rem;
-      border-radius: 0.5rem;
       border: none;
-      font-family: "Ubuntu Bold";
+      border-radius: 0.5rem;
       transition: all 500ms;
+      cursor: pointer;
 
       &:hover {
         background-color: rgb(23, 74, 139);
       }
+    }
+  }
+}
+
+#actions-mobile {
+  width: 86%;
+  height: 25%;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+
+  #go-back {
+    border: none;
+    background-color: white;
+    color: rgb(1, 41, 92);
+    font-family: "Ubuntu Bold";
+    height: 3rem;
+    width: 7rem;
+    cursor: pointer;
+  }
+
+  #next-step {
+    background-color: rgb(1, 41, 92);
+    color: white;
+    font-family: "Ubuntu Bold";
+    height: 3rem;
+    width: 7rem;
+    border: none;
+    border-radius: 0.5rem;
+    transition: all 500ms;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(23, 74, 139);
+    }
+  }
+  display: none;
+}
+
+@media (max-width: 416px) {
+  .error {
+    font-size: 0.85rem;
+  }
+
+  #step-1 {
+    background-color: white;
+    width: 90%;
+    position: absolute;
+    top: 15%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    align-items: center;
+    height: unset;
+
+    #headers-container {
+      margin: 2rem 2rem 1rem 2rem;
+    }
+    #actions {
+      display: none;
+    }
+  }
+
+  #actions-mobile {
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+
+    #go-back {
+      background-color: transparent;
     }
   }
 }

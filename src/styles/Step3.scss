@@ -137,3 +137,32 @@
     }
   }
 }
+
+@media (max-width: 416px) {
+  #step-3 {
+    background-color: white;
+    width: 90%;
+    position: absolute;
+    top: 15%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    align-items: center;
+    height: auto;
+    padding-bottom: 2rem;
+
+    #headers-container {
+      margin: 2rem 2rem 1rem 2rem;
+    }
+    #actions {
+      display: none;
+    }
+
+    #addons {
+      width: 90%;
+      .addon {
+        height: 6rem;
+      }
+    }
+  }
+}

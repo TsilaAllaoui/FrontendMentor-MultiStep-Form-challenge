@@ -78,32 +78,44 @@ const Step3 = ({
   };
 
   return (
-    <div id="step-3">
-      <div id="headers-container">
-        <div id="header">Pick add-ons</div>
-        <div id="header-desc">Add-ons help enhance your gaming experience.</div>
-      </div>
-      <div id="addons">
-        {addons.map((addon, index) => (
-          <div
-            className="addon"
-            key={index}
-            onClick={(e) => toggleAddon(e, index)}
-          >
-            <img src={check} alt="check" />
-            <div id="info">
-              <p>{addon.name}</p>
-              <p>{addon.desc}</p>
-            </div>
-            <p id="price">
-              +$
-              {planType == "mo" ? addon.monthlyPrice : addon.yearlyPrice}/
-              {planType}
-            </p>
+    <>
+      <div id="step-3">
+        <div id="headers-container">
+          <div id="header">Pick add-ons</div>
+          <div id="header-desc">
+            Add-ons help enhance your gaming experience.
           </div>
-        ))}
+        </div>
+        <div id="addons">
+          {addons.map((addon, index) => (
+            <div
+              className="addon"
+              key={index}
+              onClick={(e) => toggleAddon(e, index)}
+            >
+              <img src={check} alt="check" />
+              <div id="info">
+                <p>{addon.name}</p>
+                <p>{addon.desc}</p>
+              </div>
+              <p id="price">
+                +$
+                {planType == "mo" ? addon.monthlyPrice : addon.yearlyPrice}/
+                {planType}
+              </p>
+            </div>
+          ))}
+        </div>
+        <div id="actions">
+          <button id="go-back" onClick={previous}>
+            Go Back
+          </button>
+          <button id="next-step" onClick={next}>
+            Next Step
+          </button>
+        </div>
       </div>
-      <div id="actions">
+      <div id="actions-mobile">
         <button id="go-back" onClick={previous}>
           Go Back
         </button>
@@ -111,7 +123,7 @@ const Step3 = ({
           Next Step
         </button>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,7 +1,7 @@
 #plan {
   display: flex;
   flex-direction: column;
-  border: solid 1px rgba(128, 128, 128, 0.628);
+  border: solid 1px rgba(128, 128, 128, 0.79);
   width: 33%;
   height: 100%;
   padding: 1rem;
@@ -42,8 +42,18 @@
     }
 
     p:nth-of-type(2) {
-      color: rgba(128, 128, 128, 0.628);
+      color: rgba(70, 69, 69, 0.782);
       font-size: 0.8rem;
     }
+  }
+}
+
+@media (max-width: 416px) {
+  #plan {
+    width: 90%;
+    height: 5rem;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
   }
 }

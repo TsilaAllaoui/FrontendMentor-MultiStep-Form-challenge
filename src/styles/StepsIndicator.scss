@@ -48,3 +48,31 @@
     }
   }
 }
+
+@media (max-width: 416px) {
+  #steps-indicator {
+    flex-direction: row;
+    width: 100%;
+    height: 25%;
+    border-radius: 0;
+    align-items: flex-start;
+    justify-content: space-evenly;
+
+    .step {
+      margin: 0;
+      flex-direction: column;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      #index {
+        margin-top: 3rem;
+      }
+
+      #step-infos {
+        display: none;
+      }
+    }
+  }
+}
