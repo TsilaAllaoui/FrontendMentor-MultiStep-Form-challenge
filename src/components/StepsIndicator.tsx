@@ -17,7 +17,7 @@ const StepsIndicator = ({
           return (
             <div className="step" key={index}>
               <div
-                id="index"
+                className="index"
                 style={{
                   backgroundColor:
                     index == currentStep
@@ -31,9 +31,9 @@ const StepsIndicator = ({
               >
                 {index + 1}
               </div>
-              <div id="step-infos">
-                <div id="step-index">STEP {index + 1}</div>
-                <div id="desc">{step.desc}</div>
+              <div className="step-infos">
+                <div className="step-index">STEP {index + 1}</div>
+                <div className="desc">{step.desc}</div>
               </div>
             </div>
           );
