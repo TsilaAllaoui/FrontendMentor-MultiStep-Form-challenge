@@ -112,10 +112,10 @@ const Step2 = ({
         </div>
       </div>
       <div id="actions-mobile">
-        <button id="go-back" onClick={previous}>
+        <button id="go-back-mobile" onClick={previous}>
           Go Back
         </button>
-        <button id="next-step" onClick={next}>
+        <button id="next-step-mobile" onClick={next}>
           Next Step
         </button>
       </div>

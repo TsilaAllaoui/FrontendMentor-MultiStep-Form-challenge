@@ -108,7 +108,7 @@
   align-items: flex-end;
   margin-bottom: 2rem;
 
-  #go-back {
+  #go-back-mobile {
     border: none;
     background-color: white;
     color: rgb(1, 41, 92);
@@ -118,7 +118,7 @@
     cursor: pointer;
   }
 
-  #next-step {
+  #next-step-mobile {
     background-color: rgb(1, 41, 92);
     color: white;
     font-family: "Ubuntu Bold";
@@ -165,7 +165,7 @@
     width: 95%;
     justify-content: space-between;
 
-    #go-back {
+    #go-back-mobile {
       background-color: transparent;
     }
   }

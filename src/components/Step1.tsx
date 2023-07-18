@@ -186,10 +186,10 @@ const Step1 = ({
         </div>
       </div>
       <div id="actions-mobile">
-        <button id="go-back" style={{ visibility: "hidden" }}>
+        <button id="go-back-mobile" style={{ visibility: "hidden" }}>
           Go Back
         </button>
-        <button id="next-step" onClick={next}>
+        <button id="next-step-mobile" onClick={next}>
           Next Step
         </button>
       </div>
