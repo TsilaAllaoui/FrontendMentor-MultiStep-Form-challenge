@@ -79,11 +79,12 @@ const Step1 = ({
   };
 
   const verifyInputs = () => {
-    let errorFound = false;
+    let nameError = false;
+    let emailError = false;
     let phoneError = false;
     if (nameRef.current!.value == "") {
       VerifyInput(nameRef.current!);
-      errorFound = true;
+      nameError = true;
     } else {
       nameRef.current!.style.border = "solid 1.5px rgba(128, 128, 128, 0.628)";
       const divErrorElement = nameRef.current!
@@ -93,17 +94,17 @@ const Step1 = ({
     }
     if (emailRef.current!.value == "") {
       VerifyInput(emailRef.current!);
-      errorFound = true;
+      emailError = true;
     } else {
-      errorFound = verifyEmail();
+      emailError = verifyEmail();
     }
     if (phoneRef.current!.value == "") {
       VerifyInput(phoneRef.current!);
-      errorFound = true;
+      phoneError = true;
     } else {
       phoneError = verifyPhoneNumber();
     }
-    return errorFound || phoneError;
+    return nameError || emailError || phoneError;
   };
 
   const navigate = useNavigate();
